@@ -13,21 +13,31 @@ class DynamicArray {
       return undefined
     }
   }
-
-  push(val) {
-
-    // Your code here 
+  // putting element to end of array
+  // [1,2,3,4] ___
+  // [1,2,3,4] _5__
+  push(val) { // val = 5
+    // console.log(this.data);
+    // let lastIdx = this.data.length;
+    // console.log(lastIdx);
+    this.data[this.length] = val;
+    this.length++;
+    // console.log(this.data);
+    // return this;
   }
 
-
   pop() {
-
-    // Your code here 
+    console.log(this.data)
+    // this.data[this.length] = null;
+    // this.length--;
   }
 
   shift() {
-
-    // Your code here 
+    for (let i = 0; i < this.length; i++){
+      this.data[i] = this.data[i + 1];
+    }
+    this.length--;
+    return this.data;
   }
 
   unshift(val) {
@@ -49,6 +59,36 @@ class DynamicArray {
   }
 
 }
+
+// let newArr = DynamicArray(4);
+// console.log(newArr);
+// newArr.push(1);
+// console.log(newArr.push(1));
+
+// let dynamicArr = new DynamicArray(0);
+// console.log(dynamicArr.data[0])
+// console.log(dynamicArr.length)
+// console.log(dynamicArr.push(1));
+
+let dynamicArr = new DynamicArray();
+dynamicArr.push(1);
+// console.log(dynamicArr.length);
+// console.log(dynamicArr[0]);
+
+dynamicArr.push(2);
+// console.log(dynamicArr.length);
+// console.log(dynamicArr[0]);
+dynamicArr.pop();
+
+// console.log(dynamicArr);
+
+// dynamicArr.push(3);
+// expect(dynamicArr.length).to.equal(3);
+// expect(dynamicArr.read(0)).to.equal(1);
+// expect(dynamicArr.read(1)).to.equal(2);
+// expect(dynamicArr.read(2)).to.equal(3);
+
+
 
 
 module.exports = DynamicArray;
